@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+#image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.sliced-image {
+    position: absolute;
+    border: 1px solid yellow;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.sliced-image.disappear {
+    transform: scale(0);
+    opacity: 0;
+}
