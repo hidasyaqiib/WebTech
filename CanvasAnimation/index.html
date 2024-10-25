@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Circle</title>
+    <style>
+        canvas { background-color: green; display: block; margin: 0 auto; }  /* Gaya untuk elemen canvas: latar belakang hijau, rata tengah */
+    </style>
+</head>
+
+<body>
+    <canvas id="movingCircle" width="400" height="320"></canvas>  
+
+    <script>
+        const canvas = document.getElementById('movingCircle');  
+        const ctx = canvas.getContext('2d');  
+        let x = 50, y = canvas.height / 2, dx = 2; 
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);  
+            ctx.beginPath();  
+            ctx.arc(x, y, 20, 0, Math.PI * 2);  
+            ctx.fillStyle = 'white'; 
+            ctx.fill();  
+            x += dx;  
+
+            if (x + 20 > canvas.width || x - 20 < 0) dx = -dx;  
+            requestAnimationFrame(animate);  
+        }
+
+        animate();  
+    </script>
+</body>
+</html>
